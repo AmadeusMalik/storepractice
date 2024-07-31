@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+$primary:hsl(20, 50%, 98%);
+$secondary: hsl(13, 31%, 94%);
+$alt-text-color: hsl(14, 25%, 72%);
+$sub-text-color:  hsl(7, 20%, 60%);
+$highlight: hsl(12, 20%, 44%);
+$text-color:  hsl(14, 65%, 9%);
+
+$red: hsl(14, 86%, 42%);
+$green:  hsl(159, 69%, 38%);
+//Prime Ng
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+/* Order */
+@layer reset, primeng;
+
+/* Reset CSS */
+@layer reset {
+
+}
+//Font
+@font-face {
+  font-family: 'redhat';
+  src: url('assets/fonts/static/RedHatText-Regular.ttf');
+}
+//body
+body{
+  font-family: 'redhat';
+  color: $text-color;
+  font-size: 16px;
+  background-color: $secondary;
+}
+.cartButton {
+  height: 35px;
+  width: 160px;
+  border-radius: 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: $primary ;
+  border: $red 1px solid;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+}
+.cartButton:hover{
+  background-color: orange;
+}

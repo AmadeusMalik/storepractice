@@ -8,15 +8,11 @@ import { Products, Image } from './products';
 })
 export class AppComponent {
   commonService = Inject(CommonService);
-  productList : Products[];
-  images :Image[] | undefined;
-  constructor( public common: CommonService){
+  productList: Products[];
+  images: Image[] | undefined;
+  constructor(public common: CommonService) {
     this.productList = this.common.getProductList();
     console.log(this.productList);
-  };
+  }
   title = 'Store';
 }
-
-
-
-
