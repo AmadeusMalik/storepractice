@@ -29,6 +29,25 @@ body{
   font-size: 16px;
   background-color: $secondary;
 }
+.addBtn{
+ visibility: hidden;
+}
+.addBtn{
+  opacity: 1;
+  height: 35px;
+  width: 160px;
+  border-radius: 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: $primary ;
+  border: $red 1px solid;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  transition: opacity .55s ease-in-out;
+  -moz-transition: opacity .55s ease-in-out;
+  -webkit-transition: opacity .55s ease-in-out;
+}
+
 .cartButton {
   height: 35px;
   width: 160px;
@@ -39,7 +58,9 @@ body{
   border: $red 1px solid;
   color: rgb(0, 0, 0);
   font-size: 13px;
+  opacity: 1;
 }
 .cartButton:hover{
-  background-color: orange;
+
+
 }
