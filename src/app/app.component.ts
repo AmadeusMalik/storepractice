@@ -9,24 +9,39 @@ import { FormGroup } from '@angular/forms';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  cart: Cart[] = []
+  total: number = 0;
+  cart: Cart[] = [];
   title = 'Store';
   commonService = Inject(CommonService);
-  customLabel = 'My custom label';
+  customLabel: any;
   img: any;
-  productList: Products[];
+  product: Products[];
   images: Image[] | undefined;
   reactiveForm!: FormGroup;
   constructor(public common: CommonService) {
-    this.productList = this.common.getProductList();
-    console.log(this.productList);
+    this.product = this.common.getProductList();
   }
-  ngOnInit() {
-
-
+  ngOnInit() {}
+  chngBtn(product: Products) {
+    this.customLabel = product.qnt;
   }
-addToCart(){
-
-}
-
+  addToCart(product: Products) {
+    if (product.qnt === 0) {
+      product.qnt++;
+      this.cart.push(product); // Add product to cart
+      console.log(product.name, 'has been added to Cart');
+      this.calculate(); // Update total after adding
+    } else if (product.qnt < 10) {
+      product.qnt++;
+      this.calculate();
+    } else {
+      return console.log('no more in stock');
+    }
+  }
+  calculate() {
+    this.total = this.cart.reduce(
+      (acc, product) => acc + product.price * product.qnt,
+      0
+    );
+  }
 }
