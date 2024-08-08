@@ -5,5 +5,6 @@ export interface Cart {
   category: string,
   price: number,
   image: Image
+  total:number
   qnt: number
 }

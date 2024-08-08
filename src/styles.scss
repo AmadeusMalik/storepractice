@@ -1,56 +1,107 @@
-$primary:hsl(20, 50%, 98%);
+/****
+**CSS FOLLOW THE FOLLWING STYLE FORMAT:
+//FONT
+//BACKGROUND
+//SIZE
+//OTHER
+//BORDER
+****/
+
+//*****MAIN -CSS- COLORS
+$primary: hsl(20, 50%, 98%);
 $secondary: hsl(13, 31%, 94%);
 $alt-text-color: hsl(14, 25%, 72%);
-$sub-text-color:  hsl(7, 20%, 60%);
+$sub-text-color: hsl(7, 20%, 60%);
 $highlight: hsl(12, 20%, 44%);
-$text-color:  hsl(14, 65%, 9%);
-
+$text-color: hsl(14, 65%, 9%);
 $red: hsl(14, 86%, 42%);
-$green:  hsl(159, 69%, 38%);
-//Prime Ng
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
+$green: hsl(159, 69%, 38%);
+
+
+
+/***IMPORTS**/
+///Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+//PrimeNG
+@import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css";
+@import "../node_modules/primeng/resources/primeng.css";
+@import "../node_modules/primeicons/primeicons.css";
 /* Order */
 @layer reset, primeng;
-
 /* Reset CSS */
 @layer reset {
 
 }
+
 //Font
 @font-face {
-  font-family: 'redhat';
-  src: url('assets/fonts/static/RedHatText-Regular.ttf');
+  font-family: "redhat";
+  src: url("assets/fonts/static/RedHatText-Regular.ttf");
 }
+
+//FONT
+//BACKGROUND
+//SIZE
+//OTHER
+//BORDER
+.cancelBtn{
+  cursor: pointer;
+width: 1%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: red;
+}
+
 //body
-body{
-  font-family: 'redhat';
-  color: $text-color;
+body {
+  //FONT
+  font-family: "redhat";
   font-size: 16px;
+  color: $text-color;
+  //BACKGROUND
   background-color: $secondary;
+  //SIZE
+  //OTHER
 }
-.addBtn:hover{
-color:$red ;
+.addBtn:hover {
+  //FONT
+  //BACKGROUND
+  //SIZE
+  //OTHER
+  color: $red;
 }
-.addBtn{
+.addBtn {
+  //FONT
   font-weight: 600;
   font-size: 12px;
+  //BACKGROUND
+  //SIZE
+  //OTHER
+
 }
 
 .cartButton {
-  height: 35px;
-  width: 160px;
-  border-radius: 40px;
+  //FONT
+  //BACKGROUND
+  background-color: $primary;
+  //SIZE
+  width: 150px;
+  height: 40px;
+  //OTHER
+  cursor: pointer;
   position: absolute;
-  transform: translate(-50%, -50%);
-  background-color: $primary ;
-  border: $highlight 1px solid;
-  color: rgb(0, 0, 0);
-  font-size: 13px;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
 
-
+  //BORDER
+  border-radius: 20px;
+  border: solid $highlight 2px;
 }
-.cartButton:hover{
-
-
+.cartButton:hover {
+  //FONT
+  //BACKGROUND
+  //SIZE
+  //OTHER
 }
