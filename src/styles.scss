@@ -45,12 +45,20 @@ $green: hsl(159, 69%, 38%);
 //OTHER
 //BORDER
 .cancelBtn{
-  cursor: pointer;
+  //FONT
+  font-size: 15px;
+  color: $sub-text-color;
+//BACKGROUND
+//SIZE
 width: 1%;
 display: flex;
 align-items: center;
 justify-content: center;
-background-color: red;
+//OTHER
+cursor: pointer;
+//BORDER
+
+
 }
 
 //body
@@ -94,14 +102,33 @@ body {
   bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
-
   //BORDER
   border-radius: 20px;
   border: solid $highlight 2px;
 }
-.cartButton:hover {
+.qntButton {
+  //FONT
+  //BACKGROUND
+  background-color: $primary;
+  //SIZE
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 40px;
+  //OTHER
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  //BORDER
+  border-radius: 20px;
+  border: solid $highlight 2px;
+}
+.qntControl ,.cartButton:hover {
   //FONT
   //BACKGROUND
   //SIZE
   //OTHER
+  cursor: pointer;
 }

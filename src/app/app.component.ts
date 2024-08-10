@@ -23,28 +23,33 @@ export class AppComponent implements OnInit {
   cart: Cart[] = [];
   title = 'Store';
   commonService = Inject(CommonService);
-  customLabel: any;
+  changeQnt: boolean = false;
   img: any;
   product: Products[];
   images: Image[] | undefined;
   reactiveForm!: FormGroup;
+added: boolean= true;
+  totalQuantity : number = 0;
   constructor(public common: CommonService) {
     this.product = this.common.getProductList();
   }
-  ngOnInit() {}
-  chngBtn(product: Products) {
-    this.customLabel = product.qnt;
-  }
+  ngOnInit( ) {}
 
 
   addToCart(product: Products) {
     const existingItem = this.cart.find((item) => item.id === product.id);
     if (existingItem) {
       // Handle existing item
-      existingItem.qnt++;
-      existingItem.total = this.singleItemCost(existingItem); // Update total for existing item
-      this.calculate(); // Update overall cart total
+      if (existingItem.qnt < 10) {
+        product.qnt++
+        existingItem.qnt++;
+        existingItem.total = this.singleItemCost(existingItem);
+        this.calculate();
+      } else {
+        console.log('Maximum quantity reached');
+      }
     } else if (product.qnt < 10) {
+      product.qnt++;
       const cartItem: CartItem = {
         ...product,
         qnt: 1,
@@ -52,17 +57,21 @@ export class AppComponent implements OnInit {
       };
       this.cart.push(cartItem);
       this.calculate();
-    } else {
-      return console.log('no more in stock');
     }
   }
 
   singleItemCost(item: CartItem): number {
     return item.price * item.qnt;
   }
-  removeItem(index: number) {
-    this.cart.splice(index, 1); // Removes one element starting at index
-    this.calculate(); // Recalculate total after removal
+  removeItem(product: Products) {
+    const index = this.cart.findIndex(item => item.id === product.id);
+    if (index !== -1) {
+      const removedItem = this.cart.splice(index, 1)[0];
+      // Update the original product's quantity
+      product.qnt = 0;
+      this.calculate(); // Recalculate totals
+      console.log(product.qnt)
+    }
   }
   /*** CALCULATE CART TOTAL ***/
   calculate() {
